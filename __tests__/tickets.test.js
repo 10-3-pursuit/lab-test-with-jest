@@ -9,7 +9,7 @@ describe("getTicketByName()", () => {
         const expected = null
         expect(actual).toEqual(expected)
     })
-    it("should return the value that matches the id using .find()", () => {
+    it("should return the value that matches the name using .find()", () => {
         const input1 = tickets
         const input2 = "Adult Matinee"
         const actual = getTicketByName (input1, input2)
