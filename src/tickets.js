@@ -1,8 +1,10 @@
+const tickets = require("../data/tickets.js")
+
 /**
  * Returns a ticket object when given the name.
  * @param {Object[]} tickets An array of ticket objects
  * @param {String} name The name of a ticket
- * @returns The ticket object with a matching ID or `null` if no object is found.
+ * @returns The ticket object with a matching name or `null` if no object is found.
  */
 function getTicketByName(tickets, name) {
   const result = tickets.find((ticket) => {
@@ -28,3 +30,8 @@ function calculateTotalFromTicketNames(tickets, names) {
   }
   return total;
 }
+
+module.exports = {
+  getTicketByName,
+  calculateTotalFromTicketNames,
+};
