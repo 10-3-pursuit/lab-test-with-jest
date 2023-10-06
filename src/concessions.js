@@ -4,7 +4,9 @@
  * @param {String} id A unique ID for a specific concession
  * @returns A concession object with a matching ID or `null` if no object is found.
  */
+
 function getConcessionByID(concessions, id) {
+  //return the concession that had the same id, else return null
   return concessions.find((concession) => concession.id === id) || null;
 }
 
@@ -15,12 +17,19 @@ function getConcessionByID(concessions, id) {
  * @returns The total value of all concessions from the `ids` array.
  */
 function calculateTotalFromIDs(concessions, ids) {
+  //create accumulator variable called total
   let total = 0;
+  //iterate through ids array
   for (let id of ids) {
+    //create variable that finds concession by id
     const concession = getConcessionByID(concessions, id);
+    //if concession exist, add price to accumulator
     if (concession) {
       total += concession.priceInCents;
     }
   }
+  //return accumulator
   return total;
 }
+
+module.exports = {getConcessionByID, calculateTotalFromIDs};
