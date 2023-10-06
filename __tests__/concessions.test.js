@@ -1,5 +1,10 @@
 const { getConcessionByID, calculateTotalFromIDs } = require("../src/concessions");
-const concessions = require('../data/concessions')
+const concessions = require('../data/concessions');
+
+const ids = [];
+for (let conc of concessions) {
+    ids.push(conc.id);
+}
 
 describe("Concessions", () => {
     describe("getConcessionByID()", () => {
@@ -11,7 +16,7 @@ describe("Concessions", () => {
             expect(actual).toEqual(expected);
         });
 
-        it('should return the concession object is the ID is found', () => {
+        it('should return the concession object if the ID is found', () => {
             const input1 = concessions;
             const input2 = 'g9sZdG1hI'
             const actual = getConcessionByID(input1, input2);
@@ -21,30 +26,27 @@ describe("Concessions", () => {
     })
 
     describe("calculateTotalFromIDs()", () => {
-        it('should return "No products purchased." if the array is empty', () => {
-            const input = {purchased:[]};
-            const actual = getProductsPurchased(input);
-            const expected = "No products purchased."
+        it('should return a total of 929 cents with the id of g9sZdG1hI', () => {
+            const input1 = concessions;
+            const input2 = ['g9sZdG1hI'];
+            const actual = calculateTotalFromIDs(input1, input2);
+            const expected = 929;
             expect(actual).toEqual(expected);
         });
 
-        // it('should return one product name if the array has one element', () => {
-        //     const input = {purchased : [
-        //         { name: 'Chobani Yogurt'}
-        //     ]};
-        //     const actual = getProductsPurchased(input);
-        //     const expected = 'Chobani Yogurt'.toString();
-        //     expect(actual).toEqual(expected);
-        // });
+        it('should return a total of 1958 cents with the first two ids', () => {
+            const input1 = concessions;
+            const input2 = ['g9sZdG1hI', '0Qs9Yp2NL'];
+            const actual = calculateTotalFromIDs(input1, input2);
+            const expected = 929 + 1029;
+            expect(actual).toEqual(expected);
+        });
 
-        // it('should return an array of names if the array has multiple elements', () => {
-        //     const input = {purchased : [
-        //         { name: 'Chobani Yogurt'},
-        //         { name: 'Cocoa Puffs' },
-        //         { name: 'Tropicana Orange Juice' }
-        //     ]};
-        //     const actual = getProductsPurchased(input);
-        //     const expected = ['Chobani Yogurt', 'Cocoa Puffs', 'Tropicana Orange Juice'];
+        // it('should return a total of 929 cents with the id of g9sZdG1hI', () => {
+        //     const input1 = concessions;
+        //     const input2 = ['g9sZdG1hI'];
+        //     const actual = calculateTotalFromIDs(input1, input2);
+        //     const expected = 929;
         //     expect(actual).toEqual(expected);
         // });
     });
