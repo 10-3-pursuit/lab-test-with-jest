@@ -1,6 +1,11 @@
 const { getTicketByName, calculateTotalFromTicketNames } = require('../src/tickets');
 const tickets = require('../data/tickets');
 
+const names = [];
+for (let elt of tickets) {
+    names.push(elt.name);
+}
+
 describe("Tickets", () => {
     describe("getTicketByName()", () => {
         it("should return null if ticket's name is not found", () => {
@@ -20,29 +25,29 @@ describe("Tickets", () => {
         });
     })
 
-    // describe("calculateTotalFromTicketNames()", () => {
-    //     it('should return a total of 929 cents with the id of g9sZdG1hI', () => {
-    //         const input1 = concessions;
-    //         const input2 = ['g9sZdG1hI'];
-    //         const actual = calculateTotalFromTicketNames(input1, input2);
-    //         const expected = 929;
-    //         expect(actual).toEqual(expected);
-    //     });
+    describe("calculateTotalFromTicketNames()", () => {
+        it('should return 0 if the ticket name is not found', () => {
+            const input1 = tickets;
+            const input2 = 'Alfa Lopez';
+            const actual = calculateTotalFromTicketNames(input1, input2);
+            const expected = 0;
+            expect(actual).toEqual(expected);
+        });
 
-    //     it('should return a total of 1958 cents with the first two ids', () => {
-    //         const input1 = concessions;
-    //         const input2 = ['g9sZdG1hI', '0Qs9Yp2NL'];
-    //         const actual = calculateTotalFromTicketNames(input1, input2);
-    //         const expected = 929 + 1029;
-    //         expect(actual).toEqual(expected);
-    //     });
+        it('should return 949 cents for the Adult Matinee ticket', () => {
+            const input1 = tickets;
+            const input2 = ['Adult Matinee'];
+            const actual = calculateTotalFromTicketNames(input1, input2);
+            const expected = 949;
+            expect(actual).toEqual(expected);
+        });
 
-    //     it('should return a total of 3975 cents with the id of g9sZdG1hI', () => {
-    //         const input1 = concessions;
-    //         const input2 = ids;
-    //         const actual = calculateTotalFromTicketNames(input1, input2);
-    //         const expected = 929 + 1029 + 569 + 749 + 699;
-    //         expect(actual).toEqual(expected);
-    //     });
-    // });
+        it('it should return 6094 cents for all of the tickets', () => {
+            const input1 = tickets;
+            const input2 = names;
+            const actual = calculateTotalFromTicketNames(input1, input2);
+            const expected = 949 + 839 + 669 + 1369 + 1219 + 1069;
+            expect(actual).toEqual(expected);
+        });
+    });
 });

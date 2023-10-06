@@ -21,10 +21,16 @@ function getTicketByName(tickets, name) {
  * @returns The total value of all tickets from the `names` array.
  */
 function calculateTotalFromTicketNames(tickets, names) {
+  // initialize a total variable to 0
   let total = 0;
+
+  // loop through the names array
   for (let name of names) {
+    // get the ticket that corresponds to name and set it to a var, ticket
     const ticket = getTicketByName(tickets, name);
+    // if ticket is found
     if (ticket) {
+      // add to the total
       total += ticket.priceInCents;
     }
   }
