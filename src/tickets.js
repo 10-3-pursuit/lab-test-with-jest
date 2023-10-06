@@ -5,10 +5,12 @@
  * @returns The ticket object with a matching ID or `null` if no object is found.
  */
 function getTicketByName(tickets, name) {
+  // search for a ticket with the given name and return the ticket
   const result = tickets.find((ticket) => {
     return ticket.name.toLowerCase() === name.toLowerCase();
   });
 
+  // if the ticket value is truthy, return it; otherwise, return null
   return result || null;
 }
 
@@ -28,3 +30,5 @@ function calculateTotalFromTicketNames(tickets, names) {
   }
   return total;
 }
+
+module.exports = { getTicketByName, calculateTotalFromTicketNames };
