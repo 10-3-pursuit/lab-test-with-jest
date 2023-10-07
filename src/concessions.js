@@ -28,3 +28,8 @@ function calculateTotalFromIDs(concessions, ids) { // fx is defined with 2 param
   }
   return total; // returns sum of the total values (prices) of concession object with ids in ids array 
 };
+
+module.exports = {
+  getConcessionByID,
+  calculateTotalFromIDs
+};
