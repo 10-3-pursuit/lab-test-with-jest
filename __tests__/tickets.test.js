@@ -7,6 +7,10 @@ const {
 describe(getTicketByName, () => { // test suite
   test("returns The ticket object with a matching ID", () => {
     // test code
+    const input;
+    const actual = getTicketByName(input);
+    const expected;
+    expected(actual).toEqual(expected); // .toEqual instead of .toBe bc expects reference type
   });
 
   test("returns `null` if no object is found", () => {
