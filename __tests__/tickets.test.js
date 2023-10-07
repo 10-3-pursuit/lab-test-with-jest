@@ -9,11 +9,11 @@ const importedTicketData = require ('../data/tickets.js'); // imported ticket da
 describe(getTicketByName, () => { // test suite
   test("returns The ticket object with a matching name", () => {
     // test code
-    const inputArrObj = importedTicketData;
-    const inputTicketName = "Adult Matinee";
+    const inputArrObj = importedTicketData; // fx expects array of objects as 1st argument
+    const inputTicketName = "Adult Matinee"; // fx expects string as 2nd argument
     const actual = getTicketByName(inputArrObj, inputTicketName);
     const expected = { id: "6ha0u__54", name: "Adult Matinee", priceInCents: 949 };
-    expect(actual).toEqual(expected); // .toEqual instead of .toBe bc expects reference type
+    expect(actual).toEqual(expected); // .toEqual instead of .toBe bc output is a reference type
   });
 
   test("returns `null` if no object with matching ticket name is found", () => {
@@ -21,7 +21,7 @@ describe(getTicketByName, () => { // test suite
     const inputArrObj = importedTicketData;
     const inputTicketName = "Free";
     const actual = getTicketByName(inputArrObj, inputTicketName);
-    expect(actual).toBeNull(); // .toEqual instead of .toBe bc expects reference type
+    expect(actual).toBeNull(); // .toBeNull bc output is expected to be null in this case
   });
 });
 
