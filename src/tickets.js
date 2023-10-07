@@ -1,4 +1,4 @@
-const ticketsArrObj = require('../data/tickets.js');
+const ticketsArrObj = require('../data/tickets.js'); // to import data from data files
 //console.log (ticketsArrObj);
 /**
  * Returns a ticket object when given the name.
@@ -32,6 +32,7 @@ function calculateTotalFromTicketNames(tickets, names) { // fx is defined with 2
   return total; // returns sum of the total values (prices) of tickets with names in names array 
 };
 
+// to export functions to test files
 module.exports = {
   getTicketByName,
   calculateTotalFromTicketNames

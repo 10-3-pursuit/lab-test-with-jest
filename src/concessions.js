@@ -1,4 +1,4 @@
-const concessionsArr = require('../data/concessions.js');
+const concessionsArrObj = require('../data/concessions.js'); // to import data from data files
 // Path Correction: Based on directory structure, require statement should have .. instead of . to move up one directory level from src to root of project then data
 //console.log(concessionsArr); // to test if import of data file was success
 
@@ -11,9 +11,10 @@ const concessionsArr = require('../data/concessions.js');
 function getConcessionByID(concessions, id) { // fx is defined with 2 parameters
    // .find is invoked on concessions array to find and return first element (concessions object) in concessions array that matches id input
    // if it doesn't it it'll return null
-  return concessions.find((concession) => concession.id === id) || null;
+  return concessions.find((concession) => concession.id === id) || null; // seems to work as intended
 };
-//console.log (getConcessionByID(concessionsArr, "g9sZdG1hI"));
+//console.log (getConcessionByID(concessionsArrObj, "g9sZdG1hI")); // tests if function returns something (should be a concession object)
+//console.log (getConcessionByID(concessionsArrObj, "q1w2e3r4r")); // should return null
 
 /**
  * Calculates a total based on the given concession IDs.
@@ -25,7 +26,7 @@ function calculateTotalFromIDs(concessions, ids) { // fx is defined with 2 param
   let total = 0; // initialized total with value of 0 (to accumualte total cost after iteration)
   for (let id of ids) { // iterates over each id in ids array
     // stores value of previous fx in concessions variable to use as as a callback function
-    const concession = getConcessionByID(concessions, id); // value of concession = fx getConcessionByID that returns concession object with a matching ID or `null` if no object is found
+    const concession = getConcessionByID(concessions, id); // value of concession = fx getConcessionByID that returns concession object with a matching IDs or `null` if no object is found
     if (concession) { 
       // if callback doesn't evaluate to null (concession object with matching ID exists) then it adds value in property priceInCents to total
       total += concession.priceInCents;
@@ -33,9 +34,13 @@ function calculateTotalFromIDs(concessions, ids) { // fx is defined with 2 param
   }
   return total; // returns sum of the total values (prices) of concession object with ids in ids array 
 };
+let ids = concessionsArrObj.map(item => item.id); // an array of ids extracted from concessionArrObj to test function
+//console.log (calculateTotalFromIDs(concessionsArrObj, ids)); // tests if function returns something (should be a number)
+//console.log (calculateTotalFromIDs(concessionsArrObj, ["g9sZdG1hI","q1w2e3r4r"])); // should return number value 929
 
-console.log ('hi')
+//console.log ('hi') // to test if node src/concessions.js runs code
 
+// to export functions to test files
 module.exports = {
   getConcessionByID,
   calculateTotalFromIDs
