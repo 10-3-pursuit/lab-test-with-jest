@@ -1,3 +1,5 @@
+const concessions = require("../data/concessions.js")
+
 /**
  * Returns a concession object by ID.
  * @param {Object[]} concessions An array of concession objects
@@ -5,6 +7,9 @@
  * @returns A concession object with a matching ID or `null` if no object is found.
  */
 function getConcessionByID(concessions, id) {
+  // iterate through array
+  // if concession.id matches, id return matching concession id
+  // if no matches, return null
   return concessions.find((concession) => concession.id === id) || null;
 }
 
@@ -21,6 +26,11 @@ function calculateTotalFromIDs(concessions, ids) {
     if (concession) {
       total += concession.priceInCents;
     }
-  }
+  }  
   return total;
+}
+
+module.exports = {
+  getConcessionByID,
+  calculateTotalFromIDs
 }
