@@ -4,7 +4,9 @@
  * @param {String} id A unique ID for a specific concession
  * @returns A concession object with a matching ID or `null` if no object is found.
  */
-function getConcessionByID(concessions, id) {
+function getConcessionByID(concessions, id) { // fx is defined with 2 parameters
+   // .find is invoked on concessions array to find and return first element in concessions array that matches id input
+   // if it doesn't it it'll return null
   return concessions.find((concession) => concession.id === id) || null;
 }
 
