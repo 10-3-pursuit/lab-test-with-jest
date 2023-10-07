@@ -1,5 +1,4 @@
 const {
   getTicketByName,
   calculateTotalFromTicketNames
-  } = require('../src/tickets');
-
+} = require('../src/tickets');
