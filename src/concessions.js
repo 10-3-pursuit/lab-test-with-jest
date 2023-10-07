@@ -1,7 +1,6 @@
-//const concessionsArr = require('./data/concessions.js');
-//const testString = require('./data/test.js');
-const testString = require('../data/test.js');
-console.log(testString);
+const concessionsArr = require('../data/concessions.js');
+// Path Correction: Based on directory structure, require statement should have .. instead of . to move up one directory level from src to root of project then data
+//console.log(concessionsArr); // to test if import of data file was success
 
 /**
  * Returns a concession object by ID.
