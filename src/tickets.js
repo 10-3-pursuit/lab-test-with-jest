@@ -1,4 +1,4 @@
-const ticketsArrObj = require('../data/tickets.js'); // to import data from data files
+const ticketsArrObj = require ('../data/tickets.js'); // to import data from data files
 //console.log (ticketsArrObj);
 /**
  * Returns a ticket object when given the name.
@@ -11,8 +11,11 @@ function getTicketByName(tickets, name) { // fx is defined with 2 parameters
     return ticket.name.toLowerCase() === name.toLowerCase(); // .find() tests each ticket in tickets array by checking if name property of the ticket (converted to lowercase) matches the provided name argument (also converted to lowercase). .toLowerCase() makes sure search is case insensitive
   });
 
-  return result || null; // returns null if no ticket that matches criteria is found (when callback returns undefined which is still truthy so || can work and return null), or the result if callback fx returns an element from array
+  return result || null; // returns null if no ticket that matches criteria is found (when callback returns undefined which is still truthy so || can work and return null), or the result if callback fx returns an element from array. Seems to work
 };
+// --- Manually Test ---
+//console.log (getTicketByName(ticketsArrObj, "Adult Matinee")); // should return { id: "6ha0u__54", name: "Adult Matinee", priceInCents: 949 }
+//console.log (getTicketByName(ticketsArrObj, "Awesome Ticket for Awesome People")); // should return null
 
 /**
  * Calculates a total based on the given ticket names.
@@ -31,6 +34,12 @@ function calculateTotalFromTicketNames(tickets, names) { // fx is defined with 2
   }
   return total; // returns sum of the total values (prices) of tickets with names in names array 
 };
+// --- Manually Test ---
+// Enable variable in next line to use the following manual tests
+//let names = ticketsArrObj.map(item => item.name); // an array of names extracted from ticketsArrObj to test function
+//console.log (calculateTotalFromTicketNames(ticketsArrObj, names)); // should return a number value of total price off all the tickets
+//console.log (calculateTotalFromTicketNames(ticketsArrObj, ["Nosebleed Seats", "VIP FancyPants Seats", "Free"])); // should retun number 0
+//console.log (calculateTotalFromTicketNames(ticketsArrObj, ["Adult Matinee", "Free"])); // should return 949
 
 // to export functions to test files
 module.exports = {

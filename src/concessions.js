@@ -1,6 +1,6 @@
-const concessionsArrObj = require('../data/concessions.js'); // to import data from data files
+const concessionsArrObj = require ('../data/concessions.js'); // to import data from data files
 // Path Correction: Based on directory structure, require statement should have .. instead of . to move up one directory level from src to root of project then data
-//console.log(concessionsArr); // to test if import of data file was success
+//console.log (concessionsArr); // to test if import of data file was success
 
 /**
  * Returns a concession object by ID.
@@ -13,6 +13,7 @@ function getConcessionByID(concessions, id) { // fx is defined with 2 parameters
    // if it doesn't it it'll return null
   return concessions.find((concession) => concession.id === id) || null; // seems to work as intended
 };
+// --- Manually Test ---
 //console.log (getConcessionByID(concessionsArrObj, "g9sZdG1hI")); // tests if function returns something (should be a concession object)
 //console.log (getConcessionByID(concessionsArrObj, "q1w2e3r4r")); // should return null
 
@@ -32,13 +33,14 @@ function calculateTotalFromIDs(concessions, ids) { // fx is defined with 2 param
       total += concession.priceInCents;
     }
   }
-  return total; // returns sum of the total values (prices) of concession object with ids in ids array 
+  return total; // returns sum of the total values (prices) of concession object with ids in ids array. Seems to work as intended
 };
-let ids = concessionsArrObj.map(item => item.id); // an array of ids extracted from concessionArrObj to test function
+// --- Manually Test ---
+// Enable variable in next line to use the following manual tests
+//let ids = concessionsArrObj.map(item => item.id); // an array of ids extracted from concessionArrObj to test function
 //console.log (calculateTotalFromIDs(concessionsArrObj, ids)); // tests if function returns something (should be a number)
 //console.log (calculateTotalFromIDs(concessionsArrObj, ["g9sZdG1hI","q1w2e3r4r"])); // should return number value 929
 
-//console.log ('hi') // to test if node src/concessions.js runs code
 
 // to export functions to test files
 module.exports = {
