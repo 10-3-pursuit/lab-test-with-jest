@@ -29,3 +29,8 @@ function calculateTotalFromTicketNames(tickets, names) { // fx is defined with 2
   }
   return total; // returns sum of the total values (prices) of tickets with names in names array 
 };
+
+module.exports = {
+  getTicketByName,
+  calculateTotalFromTicketNames
+};
