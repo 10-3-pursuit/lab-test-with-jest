@@ -1,5 +1,6 @@
 //const concessionsArr = require('./data/concessions.js');
-const testString = require('./data/test.js');
+//const testString = require('./data/test.js');
+const testString = require('../data/test.js');
 console.log(testString);
 
 /**
