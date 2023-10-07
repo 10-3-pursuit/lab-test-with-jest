@@ -1,3 +1,5 @@
+const ticketsArrObj = require('../data/tickets.js');
+console.log (ticketsArrObj);
 /**
  * Returns a ticket object when given the name.
  * @param {Object[]} tickets An array of ticket objects.
