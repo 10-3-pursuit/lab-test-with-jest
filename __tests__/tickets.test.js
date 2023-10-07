@@ -1,4 +1,4 @@
 const {
     getConcessionByID,
     calculateTotalFromIDs
-  } = require('./src/tickets.js');
+  } = require('../src/tickets');
