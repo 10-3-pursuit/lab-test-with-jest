@@ -2,8 +2,9 @@ const {
   getTicketByName,
   calculateTotalFromTicketNames
 } = require('../src/tickets'); // imported functions from tickets.js to be tested
-
 const importedTicketData = require ('../data/tickets.js'); // imported ticket data so test can understand structure of input
+
+// --- T E S T S ---
 
 // Creating test structure
 describe(getTicketByName, () => { // test suite

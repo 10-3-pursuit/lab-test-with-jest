@@ -4,12 +4,14 @@ const {
     calculateTotalFromIDs
   } = require('../src/concessions');
 
-  describe(getConcessionByID, () => { // test suite
-    test("returns a concession object by ID.", () => {
-      // test code
-    });
-  
-    test("returns null if no object is found", () => {
-      // test code
-    });
+// --- T E S T S ---
+
+describe(getConcessionByID, () => { // test suite
+  test("returns a concession object by ID.", () => {
+    // test code
   });
+  
+  test("returns null if no object is found", () => {
+    // test code
+  });
+});
