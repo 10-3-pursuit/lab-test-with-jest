@@ -19,12 +19,12 @@ function getTicketByName(tickets, name) { // fx is defined with 2 parameters
  * @returns The total value of all tickets from the `names` array.
  */
 function calculateTotalFromTicketNames(tickets, names) {
-  let total = 0;
-  for (let name of names) {
-    const ticket = getTicketByName(tickets, name);
+  let total = 0; // Initializing variable total with value 0. Stores cumulative price of the tickets whose names are provided in the names array.
+  for (let name of names) { // Iterates through each name in names array
+    const ticket = getTicketByName(tickets, name); // stores value of previous fx in tickets variable to use as as a callback function
     if (ticket) {
-      total += ticket.priceInCents;
+      total += ticket.priceInCents; // if callback doesn't evaluate to null  (ticket with name exists) then it adds value in property priceInCents to total
     }
   }
-  return total;
+  return total; // returns sum of the total values (prices) of tickets with names in names array 
 }
