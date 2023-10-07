@@ -1,3 +1,7 @@
+//const concessionsArr = require('./data/concessions.js');
+const testString = require('./data/test.js');
+console.log(testString);
+
 /**
  * Returns a concession object by ID.
  * @param {Object[]} concessions An array of concession objects.
@@ -9,6 +13,7 @@ function getConcessionByID(concessions, id) { // fx is defined with 2 parameters
    // if it doesn't it it'll return null
   return concessions.find((concession) => concession.id === id) || null;
 };
+//console.log (getConcessionByID(concessionsArr, "g9sZdG1hI"));
 
 /**
  * Calculates a total based on the given concession IDs.
@@ -28,6 +33,8 @@ function calculateTotalFromIDs(concessions, ids) { // fx is defined with 2 param
   }
   return total; // returns sum of the total values (prices) of concession object with ids in ids array 
 };
+
+console.log ('hi')
 
 module.exports = {
   getConcessionByID,
