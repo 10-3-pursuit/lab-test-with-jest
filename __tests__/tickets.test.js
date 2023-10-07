@@ -1,4 +1,5 @@
 const {
-    getConcessionByID,
-    calculateTotalFromIDs
+  getTicketByName,
+  calculateTotalFromTicketNames
   } = require('../src/tickets');
+
