@@ -4,7 +4,7 @@ const ticketsArrObj = require ('../data/tickets.js'); // to import data from dat
  * Returns a ticket object when given the name.
  * @param {Object[]} tickets An array of ticket objects.
  * @param {String} name The name of a ticket.
- * @returns The ticket object with a matching ID or `null` if no object is found.
+ * @returns The ticket object with a matching name or `null` if no object is found.
  */
 function getTicketByName(tickets, name) { // fx is defined with 2 parameters
   const result = tickets.find((ticket) => { // .find() method returns first element in tickets array that satisfies condition in next line (like using {break}; in a loop with an if statement)
