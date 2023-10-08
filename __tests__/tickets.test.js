@@ -34,6 +34,7 @@ describe(calculateTotalFromTicketNames, () => { // test suite
     const inputArrObj = importedTicketData;
     const inputTicketNamesArr = importedTicketData.map(item => item.name);
     const actual = calculateTotalFromTicketNames(inputArrObj, inputTicketNamesArr);
+    const expected = 6114;
     expect(actual).toBe(expected); // .toBe because expected value is a primitive type (number)
   });
 
@@ -42,6 +43,7 @@ describe(calculateTotalFromTicketNames, () => { // test suite
     const inputArrObj = importedTicketData;
     const inputTicketNamesArr = ["Nosebleed Seats", "VIP FancyPants Seats", "Free"];
     const actual = calculateTotalFromTicketNames(inputArrObj, inputTicketNamesArr);
+    const expected = 0;
     expect(actual).toBe(expected);
   });
 });

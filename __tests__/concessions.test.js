@@ -32,6 +32,7 @@ describe(calculateTotalFromIDs, () => { // test suite
     const inputArrObj = importedConcessionsData; // array of objects input
     const inputIDArr = importedConcessionsData.map(item => item.id)
     const actual = getTicketByName(inputArrObj, inputIDArr);
+    const expected = 3975;
     expect(actual).toBe(expected); // .toBe for primitive data types
   });
 
@@ -39,7 +40,8 @@ describe(calculateTotalFromIDs, () => { // test suite
     // test code
     const inputArrObj = importedConcessionsData; // array of objects input
     const inputIDArr = importedConcessionsData.map(item => item.id)
-    const actual = getTicketByName(inputArrObj, inputIDStrArr);
+    const actual = getTicketByName(inputArrObj, inputIDArr);
+    const expected = 0;
     expect(actual).toBe(expected); // .toBe for primitive data types
   });
 });
