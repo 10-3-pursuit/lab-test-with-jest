@@ -37,10 +37,10 @@ function calculateTotalFromTicketNames(tickets, names) { // fx is defined with 2
 // --- Manually Test ---
 // Enable variable in next line to use the following manual tests
 //let names = ticketsArrObj.map(item => item.name); // an array of names extracted from ticketsArrObj to test function
-//console.log (calculateTotalFromTicketNames(ticketsArrObj, names)); // should return a number value of total price off all the tickets bc they all have corresponding names
+//console.log (calculateTotalFromTicketNames(ticketsArrObj, names)); // should return a number value of total price 6114 from all the tickets bc they all have corresponding names
 //console.log (calculateTotalFromTicketNames(ticketsArrObj, ["Nosebleed Seats", "VIP FancyPants Seats", "Free"])); // should retun number 0 because none exist in array
 //console.log (calculateTotalFromTicketNames(ticketsArrObj, ["Adult Matinee", "Free"])); // should return 949 (mixed valid and invalid tix names)
-console.log (calculateTotalFromTicketNames([], ["Adult Matinee"])); 
+//console.log (calculateTotalFromTicketNames([], ["Adult Matinee"])); // should return 0
 
 // to export functions to test files
 module.exports = {

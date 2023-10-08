@@ -39,7 +39,7 @@ describe(calculateTotalFromIDs, () => { // test suite
   test("returns numerical value 0 if the ticket id doesn't exist in given array", () => {
     // test code
     const inputArrObj = importedConcessionsData; // array of objects input
-    const inputIDArr = importedConcessionsData.map(item => item.id)
+    const inputIDArr = ["q1w2e3r4r"];
     const actual = calculateTotalFromIDs(inputArrObj, inputIDArr);
     const expected = 0;
     expect(actual).toBe(expected); // .toBe for primitive data types

@@ -37,9 +37,11 @@ function calculateTotalFromIDs(concessions, ids) { // fx is defined with 2 param
 };
 // --- Manually Test ---
 // Enable variable in next line to use the following manual tests
-//let ids = concessionsArrObj.map(item => item.id); // an array of ids extracted from concessionArrObj to test function
-//console.log (calculateTotalFromIDs(concessionsArrObj, ids)); // tests if function returns something (should be a number)
+let ids = concessionsArrObj.map(item => item.id); // an array of ids extracted from concessionArrObj to test function
+//console.log (calculateTotalFromIDs(concessionsArrObj, ids)); // should return sum which is 3975
 //console.log (calculateTotalFromIDs(concessionsArrObj, ["g9sZdG1hI","q1w2e3r4r"])); // should return number value 929
+//console.log (calculateTotalFromIDs(concessionsArrObj, ["q1w2e3r4r"])); // should return 0
+//console.log (calculateTotalFromIDs([], ids)); // should return 0
 
 
 // to export functions to test files
