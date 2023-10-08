@@ -39,5 +39,9 @@ describe(calculateTotalFromTicketNames, () => { // test suite
 
   test("returns numerical value 0 if the ticket name doesn't exist in given array", () => {
     // test code
+    const inputArrObj = importedTicketData;
+    const inputTicketNamesArr = ["Nosebleed Seats", "VIP FancyPants Seats", "Free"];
+    const actual = calculateTotalFromTicketNames(inputArrObj, inputTicketNamesArr);
+    expect(actual).toBe(expected);
   });
 });
