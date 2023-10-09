@@ -1,37 +1,46 @@
-// Importing the functions to test
-const { getConcessionByID, calculateTotalFromIDs } = require('./src/concession.js');
+const { getConcessionByID, calculateTotalFromIDs 
+} = require('../src/concessions.js');
 
-// Sample data to use for testing
-const sampleConcessions = [
-  { id: "g9sZdG1hI", name: "Small Popcorn", priceInCents: 929 },
-  { id: "0Qs9Yp2NL", name: "Large Popcorn", priceInCents: 1029 },
-  { id: "KzWBehRAD", name: "Small Soda", priceInCents: 699 },
-  { id: "NEHAsbTYk", name: "Large Soda", priceInCents: 749 },
-  { id: "rNVCeVsri", name: "Candy", priceInCents: 569 }
-];
+const data = require('../data/concessions');
 
-// Testing getConcessionByID function
-describe('getConcessionByID', () => {
-  // Check if function returns null for an ID that doesn't exist
-  test('Check for non-existing ID', () => {
-    expect(getConcessionByID(sampleConcessions, 'nonexistentID')).toBeNull();
-  });
-
-  // Check if function returns the correct concession for an existing ID
-  test('Check for existing ID', () => {
-    expect(getConcessionByID(sampleConcessions, 'g9sZdG1hI')).toEqual({ id: "g9sZdG1hI", name: "Small Popcorn", priceInCents: 929 });
-  });
-});
-
-// Testing calculateTotalFromIDs function
-describe('calculateTotalFromIDs', () => {
-  // Check if function returns 0 when no IDs are given
-  test('Check for empty ID array', () => {
-    expect(calculateTotalFromIDs(sampleConcessions, [])).toBe(0);
-  });
-
-  // Check if function returns the correct total for given IDs
-  test('Check for given IDs', () => {
-    expect(calculateTotalFromIDs(sampleConcessions, ['g9sZdG1hI', 'KzWBehRAD'])).toBe(1628);
-  });
+describe("Concessions", () => {
+    describe("getConcessionByID", () => {
+        it("should return a concession object with a matching ID", () => {
+            const input1 = data
+            const input2 = "g9sZdG1hI"
+            const actual = getConcessionByID(input1,input2)
+            const expected =  { id: "g9sZdG1hI", name: "Small Popcorn", priceInCents: 929 }
+            expect(actual).toEqual(expected)
+        });
+        it("should return null if no object is found", () => {
+            const input1 = data
+            const input2 = "wrongID"
+            const actual = getConcessionByID(input1,input2)
+            const expected = null
+            expect(actual).toEqual(expected)
+        });
+    }); 
+    describe("calculateTotalFromIDs", () => {
+        it("should return the total value of all the concessions from the `id` array", () => {
+            const input1 = data
+            const input2 = ["g9sZdG1hI", "NEHAsbTYk", "rNVCeVsri"]
+            const actual = calculateTotalFromIDs(input1,input2)
+            const expected = 2247
+            expect(actual).toEqual(expected)
+        });
+        it("should return 0 if the array is empty", () => {
+            const input1 = concessionsData
+            const input2 = []
+            const actual = calculateTotalFromIDs(input1,input2)
+            const expected = 0
+            expect(actual).toEqual(expected)
+        });
+        it("should return 0  if concession is invalid", () => {
+            const input1 = data
+            const input2 = ["Chocolate Milk", "Iced Coffee"]
+            const actual = calculateTotalFromIDs(input1,input2)
+            const expected = 0
+            expect(actual).toEqual(expected)
+        });
+    })
 });
