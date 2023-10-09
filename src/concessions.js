@@ -1,3 +1,6 @@
+
+const concessions = require("../data/concessions");
+ 
 /**
  * Returns a concession object by ID.
  * @param {Object[]} concessions An array of concession objects
@@ -7,6 +10,8 @@
 function getConcessionByID(concessions, id) {
   return concessions.find((concession) => concession.id === id) || null;
 }
+
+
 
 /**
  * Calculates a total based on the given concession IDs.
@@ -24,3 +29,7 @@ function calculateTotalFromIDs(concessions, ids) {
   }
   return total;
 }
+
+
+
+module.exports = { getConcessionByID, calculateTotalFromIDs };
