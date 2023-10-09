@@ -36,4 +36,4 @@ describe("calculateTotalFromIDs()", () => {
         const expected = null;
         expect(actual).toEqual(expected);
     }); 
-}); 
+});  
