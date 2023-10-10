@@ -42,12 +42,12 @@ describe("Concessions", () => {
             expect(actual).toEqual(expected);
         });
 
-        // it('should return a total of 929 cents with the id of g9sZdG1hI', () => {
-        //     const input1 = concessions;
-        //     const input2 = ['g9sZdG1hI'];
-        //     const actual = calculateTotalFromIDs(input1, input2);
-        //     const expected = 929;
-        //     expect(actual).toEqual(expected);
-        // });
+        it('should return a total of 3975 cents with the id of g9sZdG1hI', () => {
+            const input1 = concessions;
+            const input2 = ids;
+            const actual = calculateTotalFromIDs(input1, input2);
+            const expected = 929 + 1029 + 569 + 749 + 699;
+            expect(actual).toEqual(expected);
+        });
     });
 });
