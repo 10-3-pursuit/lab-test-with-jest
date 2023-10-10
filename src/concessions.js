@@ -5,6 +5,8 @@
  * @returns A concession object with a matching ID or `null` if no object is found.
  */
 function getConcessionByID(concessions, id) {
+  // searches for a concession with a particular ID and returns null if
+  // ID is not found
   return concessions.find((concession) => concession.id === id) || null;
 }
 
@@ -15,12 +17,21 @@ function getConcessionByID(concessions, id) {
  * @returns The total value of all concessions from the `ids` array.
  */
 function calculateTotalFromIDs(concessions, ids) {
+  // initialize a total variable to 0
   let total = 0;
+
+  // loop over the ids array
   for (let id of ids) {
+    // get the concession object using an id and a helper function
     const concession = getConcessionByID(concessions, id);
+
+    // if concession is found (truthy)
     if (concession) {
+      // add the price in cents to the total
       total += concession.priceInCents;
     }
   }
   return total;
 }
+
+module.exports = { getConcessionByID, calculateTotalFromIDs };
