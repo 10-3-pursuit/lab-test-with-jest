@@ -1,0 +1,22 @@
+const { getTicketByName, calculateTotalFromTicketNames } = require('.data/tickets');
+
+
+test('Returns the correct ticket object by name', () => {
+  const tickets = [
+    { id: "6ha0u__54", name: "Adult Matinee", priceInCents: 949 },
+  { id: "dlb8ka9N_", name: "Senior Matinee", priceInCents: 839 },
+  ];
+  const result = getTicketByName(tickets, "Senior Matinee");
+});
+
+
+test('Calculates the total value of tickets from names', () => {
+  const tickets1 = [
+    { id: "FSxeEmcoJ", name: "Child Matinee", priceInCents: 669 },
+    { id: "uD_PoicNN", name: "Adult Regular", priceInCents: 1369 },
+    { id: "TQh2t6HWf", name: "Senior Regular", priceInCents: 1219 },
+    { id: "B8v5R2nVQ", name: "Child Regular", priceInCents: 1069 },
+  ];
+  const names = ["Child Matinee", "Adult Regular", "Senior Regular", "Child Regular"];
+  const result = calculateTotalFromTicketNames(tickets1, names);
+});
